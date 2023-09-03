@@ -21,6 +21,7 @@ func GetLongestWord(sentence string) (string, int) {
 				maxWord = word.String()
 				word.Reset()
 			}
+			continue
 		}
 		word.WriteByte(sentence[i])
 	}

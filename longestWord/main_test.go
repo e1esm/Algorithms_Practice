@@ -26,7 +26,8 @@ func TestGetLongestWord(t *testing.T) {
 	for _, test := range table {
 		word, length := GetLongestWord(test.sentence)
 		if word != test.expectedWord || length != test.expectedLength {
-			t.Log("Invalid result")
+			t.Errorf("Invalid result. Want: %s %d, got: %s %d",
+				test.expectedWord, test.expectedLength, word, length)
 		}
 	}
 }
