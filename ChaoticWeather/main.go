@@ -12,13 +12,17 @@ func GetChaoticLength(arr []int) int {
 	}()
 	length := 0
 
-	for i := 0; i < len(arr)-1; i++ {
+	for i := 0; i < len(arr); i++ {
 		if i == 0 {
 			if arr[i] > arr[i+1] {
 				length++
 			}
-		} else {
+		} else if i < len(arr)-1 {
 			if arr[i] > arr[i+1] && arr[i] > arr[i-1] {
+				length++
+			}
+		} else {
+			if arr[i] > arr[i-1] {
 				length++
 			}
 		}

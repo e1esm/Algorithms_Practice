@@ -17,7 +17,7 @@ func TestGetChaoticLength(t *testing.T) {
 		},
 		{
 			length:         5,
-			arr:            []int{1, 2, 4, 5, 8},
+			arr:            []int{1, 2, 5, 4, 8},
 			expectedOutput: 2,
 		},
 	}
@@ -25,7 +25,7 @@ func TestGetChaoticLength(t *testing.T) {
 	for _, test := range table {
 		output := GetChaoticLength(test.arr)
 		if output != test.expectedOutput {
-			t.Logf("Invalid return, want: %d got: %d",
+			t.Errorf("Invalid return, want: %d got: %d",
 				test.expectedOutput, output)
 		}
 	}
