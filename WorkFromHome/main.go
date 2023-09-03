@@ -17,5 +17,9 @@ func BinaryOf(num int) string {
 		sb.WriteString(fmt.Sprintf("%d", num%2))
 		num = num / 2
 	}
-	return sb.String()
+	result := []rune(sb.String())
+	for i, j := 0, len(result)-1; i < j; i, j = i+1, j-1 {
+		result[i], result[j] = result[j], result[i]
+	}
+	return string(result)
 }

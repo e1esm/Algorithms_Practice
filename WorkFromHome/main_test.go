@@ -30,7 +30,7 @@ func TestBinaryOf(t *testing.T) {
 	for _, test := range table {
 		output := BinaryOf(test.input)
 		if output != test.expectedOutput {
-			t.Logf("Invalid result. Want: %v, got: %v",
+			t.Errorf("Invalid result. Want: %v, got: %v",
 				test.expectedOutput, output)
 		}
 	}
