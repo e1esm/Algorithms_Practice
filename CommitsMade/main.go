@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"time"
 )
 
@@ -18,4 +19,9 @@ func CommitsToDo(n int) int {
 		fmt.Println(time.Since(start))
 	}()
 	return CountFibonnaci(n)
+}
+
+func LastKNumber(n int, l int) int {
+	result := n % int(math.Pow(10, float64(l)))
+	return result
 }
