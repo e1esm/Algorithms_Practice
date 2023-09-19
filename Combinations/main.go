@@ -5,16 +5,14 @@ import (
 	"strings"
 )
 
-var answer []string
-
-func generateCombinations(digits string, buffer []string, i int) {
+func generateCombinations(digits string, buffer []string, answer *[]string, i int) {
 	if i == len(digits) {
-		answer = append(answer, strings.Join(buffer, ""))
+		*answer = append(*answer, strings.Join(buffer, ""))
 		return
 	}
 	for _, symbol := range keyboard[rune(digits[i])] {
 		buffer[i] = symbol
-		generateCombinations(digits, buffer, i+1)
+		generateCombinations(digits, buffer, answer, i+1)
 	}
 }
 
@@ -22,10 +20,10 @@ func letterCombinations(digits string) []string {
 	if len(digits) == 0 {
 		return nil
 	}
-	answer = make([]string, 0)
-	buffer := strings.Split(digits, "")
+	answer := make([]string, 0)
+	buffer := make([]string, len(digits))
 
-	generateCombinations(digits, buffer, 0)
+	generateCombinations(digits, buffer, &answer, 0)
 
 	return answer
 }
