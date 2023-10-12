@@ -52,7 +52,7 @@ func generateHash(requestedStr []string) []int {
 
 	for i := 0; i < len(requestedStr); i++ {
 		for j := 0; j < len(requestedStr[i]); j++ {
-			hashedValues[i] += int(requestedStr[i][j]) * int(math.Pow(q, float64(len(requestedStr[i])-j)))
+			hashedValues[i] += int(requestedStr[i][j]) * int(math.Pow(q, float64(len(requestedStr[i])-j-1)))
 		}
 		hashedValues[i] %= r
 	}
